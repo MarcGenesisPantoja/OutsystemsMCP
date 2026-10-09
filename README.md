@@ -61,6 +61,22 @@ claude mcp add outsystems-docs -- uv --directory /path/to/outsystems-documentati
 | `list_docs(source, prefix?)` | Browse sections, or list the pages under a folder. |
 | `index_info()` | When the index was last synced and how many pages it has. |
 
+## Skills
+
+`SKILLS/outsystems-mentor-brd` is a Claude Code skill that interviews you and writes a requirement document (BRD) ready to upload to OutSystems Mentor App Generator on ODC. It uses this MCP server (`outsystems-docs`) to check Mentor's current documentation each run.
+
+- **In this project:** it loads automatically — `.claude/skills/outsystems-mentor-brd` links to it. Ask Claude Code to "create a BRD for Mentor" or run `/outsystems-mentor-brd`.
+- **In all your projects:** link it into your personal skills folder:
+
+  ```bash
+  mkdir -p ~/.claude/skills
+  ln -s "$PWD/SKILLS/outsystems-mentor-brd" ~/.claude/skills/outsystems-mentor-brd
+  ```
+
+Claude Code has no `claude skill add` command; skills are picked up from `.claude/skills/` (per project) or `~/.claude/skills/` (personal).
+
+The skill is adapted from [donnieprakoso/mcp-outsystems-docs](https://github.com/donnieprakoso/mcp-outsystems-docs), with its tool references changed to match this server.
+
 ## Development
 
 ```bash

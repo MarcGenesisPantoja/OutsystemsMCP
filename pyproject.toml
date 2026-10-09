@@ -1,0 +1,23 @@
+[project]
+name = "outsystems-docs-mcp"
+version = "0.1.0"
+description = "MCP server that lets AI assistants search the official OutSystems documentation (O11, ODC and How-to guides)."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "mcp>=2.3,<3",
+    "pyyaml>=6.0.3",
+]
+
+[project.scripts]
+sync = "outsystems_docs_mcp.sync:main"
+outsystems-docs-mcp = "outsystems_docs_mcp.server:main"
+
+[build-system]
+requires = ["uv_build>=0.11.32,<0.12.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
